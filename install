@@ -1,0 +1,31 @@
+# !/usr/bin/env sh
+
+set -e
+
+function lnDot()
+{
+  dotName=.$1
+    backup=$dotName.backup
+    echo $dotName $backup $repoDir/$1
+
+    [[ -f $dotName ]] && mv $dotName $backup
+
+    ln -s $repoDir/$1 $dotName
+}
+
+repoDir=$(pwd)
+
+cd $HOME
+
+lnDot 'aliases.zsh'
+lnDot 'spacemacs'
+lnDot 'zprofile'
+lnDot 'zshenv'
+lnDot 'zshrc'
+
+nvimConifig=$XDG_CONFIG_HOME/nvim 
+nvimBackup=nvimConifig.backup
+[[ -d $nvimConifig ]] && mv $nvimConifig $nvimBackup
+echo $nvimConifig $nvimBackup $repoDir/vim $XDG_CONFIG_HOME/nvim
+
+ln -s $repoDir/vim $XDG_CONFIG_HOME/nvim
