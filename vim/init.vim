@@ -31,19 +31,11 @@ let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
 
-" Ale
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_php_langserver_use_global = 1
+let g:ale_php_langserver_executable = $HOME.'/.config/composer/vendor/bin/php-language-server.php'
+let g:ale_completion_enabled = 1
 
-let g:airline#extensions#ale#enabled = 1
-let airline#extensions#ale#error_symbol = 'E:'
-let airline#extensions#ale#warning_symbol = 'W:'
-
-
+let g:ale_update_tagstack = 1
 
 set hidden
 
@@ -53,20 +45,19 @@ set hidden
 " ██╔═══╝ ██║     ██║   ██║██║   ██║██║██║╚██╗██║╚════██║
 " ██║     ███████╗╚██████╔╝╚██████╔╝██║██║ ╚████║███████║
 " ╚═╝     ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝
-set runtimepath^=$XDG_CACHE_HOME/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state("$XDG_CACHE_HOME/dein")
-  call dein#begin("$XDG_CACHE_HOME/dein")
-  call dein#add("$XDG_CACHE_HOME/dein")
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" '/Users/pawel.damasiewicz/.cache/dein'
+
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('roxma/nvim-yarp')
 
   " Completion
-  call dein#add('ncm2/ncm2')
-  call dein#add('ncm2/ncm2-bufword')
-  call dein#add('ncm2/ncm2-path')
-  call dein#add('ncm2/ncm2-jedi')
   call dein#add('jsfaint/gen_tags.vim')
 
   " UI
@@ -84,11 +75,15 @@ if dein#load_state("$XDG_CACHE_HOME/dein")
   " Checkers
   call dein#add('editorconfig/editorconfig-vim')
   call dein#add('vim-ruby/vim-ruby')
-  call dein#add('w0rp/ale')
+  call dein#add('dense-analysis/ale')
 
   " Searching
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+  call dein#add('majutsushi/tagbar')
+
+  " Collaborating
+  call dein#add('floobits/floobits-neovim')
 
   " Required
   call dein#end()
@@ -163,30 +158,13 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
 autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
+" Jenkins DSL
+au! BufNewFile,BufReadPost *.dsl set filetype=groovy
+autocmd FileType groovy setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab
+
 " PHP CS
 au! BufNewFile,BufReadPost .php_cs set filetype=php foldmethod=indent
 
-" NCM2
-augroup NCM2
-  autocmd!
-  " enable ncm2 for all buffers
-  autocmd BufEnter * call ncm2#enable_for_buffer()
-  " :help Ncm2PopupOpen for more information
-  set completeopt=noinsert,menuone,noselect
-  " When the <Enter> key is pressed while the popup menu is visible, it only
-  " hides the menu. Use this mapping to close the menu and also start a new line.
-  inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-  " uncomment this block if you use vimtex for LaTex
-  " autocmd Filetype tex call ncm2#register_source({
-  "           \ 'name': 'vimtex',
-  "           \ 'priority': 8,
-  "           \ 'scope': ['tex'],
-  "           \ 'mark': 'tex',
-  "           \ 'word_pattern': '\w+',
-  "           \ 'complete_pattern': g:vimtex#re#ncm2,
-  "           \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
-  "           \ })
-augroup END
 " ██╗  ██╗███████╗██╗   ██╗    ██████╗ ██╗███╗   ██╗██████╗ ██╗███╗   ██╗ ██████╗ ███████╗
 " ██║ ██╔╝██╔════╝╚██╗ ██╔╝    ██╔══██╗██║████╗  ██║██╔══██╗██║████╗  ██║██╔════╝ ██╔════╝
 " █████╔╝ █████╗   ╚████╔╝     ██████╔╝██║██╔██╗ ██║██║  ██║██║██╔██╗ ██║██║  ███╗███████╗
@@ -230,4 +208,8 @@ nnoremap <leader>fg :GFiles?<CR>
 
 vnoremap <leader>fb :call fzf#run({'source': 'git diff --name-only develop HEAD', 'sink': 'e'})<CR>
 nnoremap <leader>fb :call fzf#run({'source': 'git diff --name-only develop HEAD', 'sink': 'e'})<CR>
+
+vnoremap <C-]> :ALEGoToDefinition<CR>
+nnoremap <C-]> :ALEGoToDefinition<CR>
+
 
