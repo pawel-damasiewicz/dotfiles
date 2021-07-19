@@ -24,7 +24,7 @@ DEFAULT_USER="pawel.damasiewicz"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew common-aliases jsontools urltools virtualenv python pyenv docker-composer docker tig)
+plugins=(git brew common-aliases jsontools urltools virtualenv python pyenv docker-compose docker tig)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -121,7 +121,9 @@ fi
 gnutar_bin="/usr/local/opt/gnu-tar/libexec/gnubin"
 [[ -d $gnutar_bin ]] && export PATH="$gnutar_bin:$PATH"
 
-eval "$(rbenv init -)"
+if command -v rbenv 1>/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
 
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
@@ -131,9 +133,13 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/pawel.damasiewicz/.phpbrew/bashrc
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+phpbrew_loader=$HOME/.phpbrew/bashrc
+if [ -f $phpbrew_loader ]; then
+  source $phpbrew_loader
+  source export PATH="/usr/local/opt/icu4c/bin:$PATH"
+  export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+fi
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

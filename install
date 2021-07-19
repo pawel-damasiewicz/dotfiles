@@ -1,6 +1,13 @@
-# !/usr/bin/env sh
+#!/usr/bin/env zsh
 
 set -e
+#
+# Set XDG Config Home
+config_dir="$HOME/.config"
+[[ -d $config_dir ]] || mkdir $config_dir
+[[ -d $config_dir ]] && export XDG_CONFIG_HOME="$config_dir"
+
+echo $XDG_CONFIG_HOME
 
 function lnDot()
 {
