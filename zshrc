@@ -24,7 +24,7 @@ DEFAULT_USER="pawel.damasiewicz"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew common-aliases jsontools urltools virtualenv python pyenv docker-compose docker tig)
+plugins=(git brew common-aliases jsontools urltools virtualenv python pyenv docker-compose docker tig ssh-agent)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -111,12 +111,6 @@ function load_info()
 }
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# Set pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
 
 gnutar_bin="/usr/local/opt/gnu-tar/libexec/gnubin"
 [[ -d $gnutar_bin ]] && export PATH="$gnutar_bin:$PATH"
