@@ -212,4 +212,6 @@ nnoremap <leader>fb :call fzf#run({'source': 'git diff --name-only develop HEAD'
 vnoremap <C-]> :ALEGoToDefinition<CR>
 nnoremap <C-]> :ALEGoToDefinition<CR>
 
+tnoremap <Esc> <C-\><C-n>
+
 
