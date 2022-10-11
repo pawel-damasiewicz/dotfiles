@@ -58,7 +58,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('roxma/nvim-yarp')
 
   " Completion
-  call dein#add('jsfaint/gen_tags.vim')
+  " call dein#add('jsfaint/gen_tags.vim')
 
   " UI
   call dein#add('scrooloose/nerdtree')
@@ -83,7 +83,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('majutsushi/tagbar')
 
   " Collaborating
-  call dein#add('floobits/floobits-neovim')
+  " call dein#add('floobits/floobits-neovim')
 
   " Required
   call dein#end()
