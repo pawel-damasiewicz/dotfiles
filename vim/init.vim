@@ -13,9 +13,8 @@ endif
 " Remap Leader
 let mapleader=","
 
-" Python 2.7 & 3
-let g:python_host_prog = '/Users/pawel.damasiewicz/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/pawel.damasiewicz/.pyenv/versions/neovim3/bin/python'
+" Python 3
+let g:python3_host_prog = '/home/pdam/.pyenv/versions/nvim/bin/python'
 
 " AirLine
 if !exists('g:airline_symbols')
