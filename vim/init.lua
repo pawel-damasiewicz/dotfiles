@@ -1,1 +1,2 @@
+require('pdam')
 print('Hello')
