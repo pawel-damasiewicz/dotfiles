@@ -1,2 +1,1 @@
 require('pdam')
-print('Hello')
