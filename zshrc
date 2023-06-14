@@ -9,12 +9,11 @@ export home_zshrc_loaded_at
 export ZSH=$HOME/.oh-my-zsh
 
 # Load base16 theme
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
   [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
   source "$BASE16_SHELL/profile_helper.sh"
+
+base16_twilight
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -22,7 +21,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # time that oh-my-zsh is loaded.
 ZSH_THEME="ys"
 
-DEFAULT_USER="pawel.damasiewicz"
+DEFAULT_USER="pdam"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
