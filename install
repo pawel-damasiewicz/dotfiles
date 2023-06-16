@@ -30,9 +30,20 @@ lnDot 'zprofile'
 lnDot 'zshenv'
 lnDot 'zshrc'
 
-nvimConifig=$XDG_CONFIG_HOME/nvim 
-nvimBackup=nvimConifig.backup
-[[ -d $nvimConifig ]] && mv $nvimConifig $nvimBackup
-echo $nvimConifig $nvimBackup $repoDir/vim $XDG_CONFIG_HOME/nvim
+nvimConifig=$XDG_CONFIG_HOME/nvim
+nvimBackup=$nvimConifig.backup
+if [[ -d $nvimConifig ]]; then
+    echo "Nvim config found: $nvimConifig"
+    echo "Moving $nvimConifig to backup $nvimBackup"
+    mv $nvimConifig $nvimBackup
+fi
 
-ln -s $repoDir/vim $XDG_CONFIG_HOME/nvim
+[[ -d $nvimBackup ]] && echo "Backup created at $nvimBackup"
+[[ -d $nvimConfig ]] &&
+    echo "Error, config file still exists after creating backup $nvimConifig" &&
+    exit 1
+
+linkSource=$repoDir
+linkTarget=$XDG_CONFIG_HOME/nvim
+echo "Creating symbolic link form source ($linkSource) to target ($linkTarget)"
+ln -s $linkSource $linkTarget
