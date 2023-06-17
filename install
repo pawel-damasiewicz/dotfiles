@@ -43,7 +43,7 @@ fi
     echo "Error, config file still exists after creating backup $nvimConifig" &&
     exit 1
 
-linkSource=$repoDir
+linkSource=$repoDir/nvim
 linkTarget=$XDG_CONFIG_HOME/nvim
 echo "Creating symbolic link form source ($linkSource) to target ($linkTarget)"
 ln -s $linkSource $linkTarget
