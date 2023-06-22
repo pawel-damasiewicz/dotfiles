@@ -44,7 +44,9 @@ return require("packer").startup(function(use)
     use "mfussenegger/nvim-dap"
     use "rcarriga/nvim-dap-ui"
     use "folke/zen-mode.nvim"
-    use 'jose-elias-alvarez/null-ls.nvim'
+    use "jose-elias-alvarez/null-ls.nvim"
+    use "MunifTanjim/prettier.nvim"
+
 
 
 end)
