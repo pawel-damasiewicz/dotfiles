@@ -8,12 +8,16 @@ return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
     use {
-        "nvim-telescope/telescope.nvim", tag = "0.1.1",
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.1",
         -- or                            , branch = "0.1.x",
         requires = { {"nvim-lua/plenary.nvim"} }
     }
 
-    use("nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"})
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate"
+    }
     use "tpope/vim-fugitive"
     use "RRethy/nvim-base16"
     use {
@@ -40,5 +44,7 @@ return require("packer").startup(function(use)
     use "mfussenegger/nvim-dap"
     use "rcarriga/nvim-dap-ui"
     use "folke/zen-mode.nvim"
+    use 'jose-elias-alvarez/null-ls.nvim'
+
 
 end)
