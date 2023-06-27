@@ -1,17 +1,17 @@
 #!/usr/bin/env zsh
 
 set -e
-#
+
+repoDir=$(pwd)
+
 # Set XDG Config Home
 config_dir="$HOME/.config"
 [[ -d $config_dir ]] || mkdir $config_dir
 [[ -d $config_dir ]] && export XDG_CONFIG_HOME="$config_dir"
 
-echo $XDG_CONFIG_HOME
-
 function lnDot()
 {
-  dotName=.$1
+    dotName=.$1
     backup=$dotName.backup
     echo $dotName $backup $repoDir/$1
 
@@ -20,30 +20,43 @@ function lnDot()
     ln -s $repoDir/$1 $dotName
 }
 
-repoDir=$(pwd)
+function lnConfigDir()
+{
+    name=$1
+    configRootDir=$2
+    dryRun=$3
+
+    configDir=$configRootDir/$name
+    configBackupDir=$configDir.backup
+
+    if [[ -d $configDir ]]; then
+        echo "$name config found: $configDir"
+        echo "Moving $configDir to bakcup $configBackupDir"
+        [[ $dryRun -eq 1 ]] || mv $configDir $configBackupDir
+    fi
+
+    [[ -d $configBackupDir ]] && echo "Backup created at $configBackupDir"
+    [[ -d $configDir ]] &&
+        echo "Error, config still exists after creating backup $configDir" &&
+        exit 1
+
+    linkSource=$repoDir/$name
+    linkTarget=$configDir
+
+    [[ $dryRun -eq 1 ]] || ln -s $linkSource $linkTarget
+    [[ -L $linkTarget ]] && [[ -d $linkTarget ]]
+        echo "Created a symlink in $linkTarget pointing to $linkSource"
+}
 
 cd $HOME
 
 lnDot 'aliases.zsh'
+lnDot 'exa-aliases.zsh'
 lnDot 'spacemacs'
 lnDot 'zprofile'
 lnDot 'zshenv'
 lnDot 'zshrc'
 
-nvimConifig=$XDG_CONFIG_HOME/nvim
-nvimBackup=$nvimConifig.backup
-if [[ -d $nvimConifig ]]; then
-    echo "Nvim config found: $nvimConifig"
-    echo "Moving $nvimConifig to backup $nvimBackup"
-    mv $nvimConifig $nvimBackup
-fi
 
-[[ -d $nvimBackup ]] && echo "Backup created at $nvimBackup"
-[[ -d $nvimConfig ]] &&
-    echo "Error, config file still exists after creating backup $nvimConifig" &&
-    exit 1
-
-linkSource=$repoDir/nvim
-linkTarget=$XDG_CONFIG_HOME/nvim
-echo "Creating symbolic link form source ($linkSource) to target ($linkTarget)"
-ln -s $linkSource $linkTarget
+lnConfigDir 'nvim' $XDG_CONFIG_HOME $DOTFILES_DRY_INSTALL
+lnConfigDir 'zellij' $XDG_CONFIG_HOME $DOTFILES_DRY_INSTALL
