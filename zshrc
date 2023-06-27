@@ -102,6 +102,10 @@ if [[ -f $HOME/.aliases.zsh ]]; then
   source "$HOME/.aliases.zsh"
 fi
 
+if command -v exa 1>/dev/null 2>&1; then
+    [[ -f $HOME/.exa-aliases.zsh ]] && source "$HOME/.exa-aliases.zsh"
+fi
+
 function load_info()
 {
   echo "/etc/zshenv loaded? $etc_zshenv_loaded"
