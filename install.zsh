@@ -2,6 +2,10 @@
 
 set -e
 
+# Install neovim packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+	~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 repoDir=$(pwd)
 
 # Set XDG Config Home
@@ -52,11 +56,11 @@ cd $HOME
 
 lnDot 'aliases.zsh'
 lnDot 'exa-aliases.zsh'
-lnDot 'spacemacs'
+# lnDot 'spacemacs'
 lnDot 'zprofile'
 lnDot 'zshenv'
 lnDot 'zshrc'
 
 
 lnConfigDir 'nvim' $XDG_CONFIG_HOME $DOTFILES_DRY_INSTALL
-lnConfigDir 'zellij' $XDG_CONFIG_HOME $DOTFILES_DRY_INSTALL
+# lnConfigDir 'zellij' $XDG_CONFIG_HOME $DOTFILES_DRY_INSTALL
