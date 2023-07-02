@@ -1,1 +1,1 @@
-vim.cmd('colorscheme base16-twilight')
+vim.cmd('colorscheme base16-gigavolt')
