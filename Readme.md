@@ -12,5 +12,5 @@
 ## Install
 
 ```sh
-$ zsh install.zsh`
+$ zsh install.zsh
 ```
