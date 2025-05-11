@@ -19,7 +19,6 @@ return require("packer").startup(function(use)
         run = ":TSUpdate"
     }
     use "tpope/vim-fugitive"
-    use "RRethy/nvim-base16"
     use {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v2.x",

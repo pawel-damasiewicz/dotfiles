@@ -63,4 +63,4 @@ lnDot 'zshrc'
 
 
 lnConfigDir 'nvim' $XDG_CONFIG_HOME $DOTFILES_DRY_INSTALL
-# lnConfigDir 'zellij' $XDG_CONFIG_HOME $DOTFILES_DRY_INSTALL
+lnConfigDir 'zellij' $XDG_CONFIG_HOME $DOTFILES_DRY_INSTALL
