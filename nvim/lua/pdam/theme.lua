@@ -1,4 +1,4 @@
--- Heetch Dark scheme by Geoffrey Teale (tealeg@gmail.com)
+-- Horizon Dark scheme by Michaël Ball (http://github.com/michael-ball/)
 --
 -- Generated from this template:
 --
@@ -13,32 +13,32 @@
 --   by the Tinted Theming contributors.
 
 -- Base16 colors.
-local gui00 = "#190134"
-local gui01 = "#392551"
-local gui02 = "#5a496e"
-local gui03 = "#7b6d8b"
-local gui04 = "#9c92a8"
-local gui05 = "#bdb6c5"
-local gui06 = "#dedae2"
-local gui07 = "#feffff"
-local gui08 = "#27d9d5"
-local gui09 = "#5ba2b6"
-local gui0A = "#8f6c97"
-local gui0B = "#c33678"
-local gui0C = "#f80059"
-local gui0D = "#bd0152"
-local gui0E = "#82034c"
-local gui0F = "#470546"
+local gui00 = "#1c1e26"
+local gui01 = "#232530"
+local gui02 = "#2e303e"
+local gui03 = "#6f6f70"
+local gui04 = "#9da0a2"
+local gui05 = "#cbced0"
+local gui06 = "#dcdfe4"
+local gui07 = "#e3e6ee"
+local gui08 = "#e93c58"
+local gui09 = "#e58d7d"
+local gui0A = "#efb993"
+local gui0B = "#efaf8e"
+local gui0C = "#24a8b4"
+local gui0D = "#df5273"
+local gui0E = "#b072d1"
+local gui0F = "#e4a382"
 
 -- Base24 colors.
-local gui10 = "#190134"
-local gui11 = "#190134"
-local gui12 = "#27d9d5"
-local gui13 = "#8f6c97"
-local gui14 = "#c33678"
-local gui15 = "#f80059"
-local gui16 = "#bd0152"
-local gui17 = "#82034c"
+local gui10 = "#1c1e26"
+local gui11 = "#1c1e26"
+local gui12 = "#e93c58"
+local gui13 = "#efb993"
+local gui14 = "#efaf8e"
+local gui15 = "#24a8b4"
+local gui16 = "#df5273"
+local gui17 = "#b072d1"
 
 -- Base16 colors.
 local cterm00 = 0
@@ -72,7 +72,7 @@ vim.cmd [[
   highlight clear
   syntax reset
 ]]
-vim.g.colors_name = "heetch"
+vim.g.colors_name = "horizon-dark"
 
 -- Vim editor colors
 vim.api.nvim_set_hl(0, 'Normal', { fg = gui05, bg = gui00, ctermfg = cterm05, ctermbg = cterm00 })
