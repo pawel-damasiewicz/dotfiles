@@ -3,6 +3,7 @@
 ## Prerequsites
 
   - `zsh`
+  - `oh-my-zsh`
   - `fzf`
   - `prettierd`
   - `rg` ripgrep
