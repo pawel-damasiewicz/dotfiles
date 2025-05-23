@@ -2,15 +2,18 @@
 
 ## Prerequsites
 
+  - Rustup
+  https://rustup.rs/
+  `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
   - `zsh`
   - `oh-my-zsh`
     - starship prompt https://starship.rs/
   - `fzf`
   - `prettierd`
   - `rg` ripgrep
-  - https://www.nerdfonts.com/
-  - `zellij` optional
-  - `exa` optional
+  - `zellij` optional or `tmux`
+  - `exa` optional @TODO: switch to `eza`
+  - `cargo install --locked flavours`
 
 ## Install
 
