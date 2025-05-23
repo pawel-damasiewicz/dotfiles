@@ -16,3 +16,7 @@
 ```sh
 $ zsh install.zsh
 ```
+
+### TODO
+
+Add starship symlink to install.zsh
