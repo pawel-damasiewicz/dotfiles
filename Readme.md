@@ -4,7 +4,7 @@
 
   - `zsh`
   - `oh-my-zsh`
-    - spaceship theme https://github.com/spaceship-prompt/spaceship-prompt
+    - starship prompt https://starship.rs/
   - `fzf`
   - `prettierd`
   - `rg` ripgrep
