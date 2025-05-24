@@ -26,7 +26,20 @@ export ZSH=$HOME/.oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew common-aliases jsontools urltools virtualenv python pyenv docker-compose docker tig ssh-agent)
+plugins=(
+    git
+    brew
+    common-aliases
+    jsontools
+    urltools
+    virtualenv
+    python
+    pyenv
+    docker-compose
+    docker
+    tig
+    ssh-agent
+)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
