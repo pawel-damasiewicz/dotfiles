@@ -8,6 +8,7 @@
   - `fzf`
   - `prettierd`
   - `rg` ripgrep
+  - https://www.nerdfonts.com/
   - `zellij` optional
   - `exa` optional
 
