@@ -1,0 +1,18 @@
+# Commands go through zsh
+shell = "zsh -c '{}'"
+
+[[item]]
+file = "~/.config/kitty/kitty.conf"
+template = "kitty"
+subtemplate = "default-256"
+
+[[item]]
+file = "~/.config/nvim/lua/pdam/theme.lua"
+template = "nvim"
+rewrite = true
+
+[[item]]
+file = "~/.config/zellij/themes/default.kdl"
+template = "zellij"
+subtemplate = "default"
+rewrite = true
