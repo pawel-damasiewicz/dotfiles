@@ -11,8 +11,12 @@ config_dir="$HOME/.config"
 [[ -d $config_dir ]] && export XDG_CONFIG_HOME="$config_dir"
 
 # Set XDG Cache Home
-config_dir="$HOME/.cache"
-[[ -d $config_dir ]] && export XDG_CACHE_HOME="$config_dir"
+cache_dir="$HOME/.cache"
+[[ -d $cache_dir ]] && export XDG_CACHE_HOME="$cache_dir"
+
+# Set XDG Pictures
+pictures_dir="$HOME/pictures"
+[[ -d $pictures_dir ]] && export XDG_PICTURES_DIR="$pictures_dir"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.symfony/bin:$PATH"
