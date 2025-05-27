@@ -2,7 +2,7 @@
 
 ## Prerequsites
 
-  - Rustup
+  - Rust
   https://rustup.rs/
   `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
   - `zsh`
@@ -11,9 +11,6 @@
   - `fzf`
   - `prettierd`
   - `rg` ripgrep
-  - `zellij` optional or `tmux`
-  - `exa` optional @TODO: switch to `eza`
-  - `cargo install --locked flavours`
 
 ## Install
 
@@ -21,6 +18,14 @@
 $ zsh install.zsh
 ```
 
-### TODO
+## Optional
+  - `zellij` or `tmux`
+  - `exa`
+    - [ ] TODO: switch to `eza`
+  - `cargo install --locked flavours`
+  - hyprland and hypr ecosystem
 
-Add starship symlink to install.zsh
+
+### TODO
+  - [ ] Add starship link to install.zsh
+  - [ ] Add links for hyprland and related
