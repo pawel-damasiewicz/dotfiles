@@ -35,6 +35,7 @@ keybinds clear-defaults=true {
         bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "normal"; }
         bind "|" { NewPane "right"; SwitchToMode "normal"; }
+        bind "d" { Detach; }
     }
 }
 
@@ -73,7 +74,7 @@ load_plugins {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "default"
+theme "catppuccin-frappe"
 
 // Choose the base input mode of zellij.
 // Default: normal
